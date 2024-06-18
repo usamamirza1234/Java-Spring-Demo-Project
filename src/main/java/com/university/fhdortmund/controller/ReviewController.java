@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -41,4 +42,19 @@ public class ReviewController {
        reviewService.saveReview(review);
         return "redirect:/reviews";
     }
+
+    @GetMapping("/reviews/{reviewId}/edit")
+    public String editReviewForm(@PathVariable("reviewId") long reviewId, Model model){
+        ReviewDto review = reviewService.findReviewById(reviewId);
+        model.addAttribute("review",review);
+        return "reviews-edit";
+    }
+
+    @PostMapping("/reviews/{reviewId}/edit")
+    public String updateReview(@PathVariable("reviewId") Long reviewId, @ModelAttribute("review") ReviewDto review){
+        review.setReviewId(reviewId);
+        reviewService.updateReview(review);
+        return "redirect:/reviews";
+    }
+
 }

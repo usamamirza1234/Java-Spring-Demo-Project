@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html xmlns:th="http://thmyelead.org" lang="en">
+        <head>
+        <meta charset="utf-8" />
+        <title>Review Create - FH Dortmund Project</title>
+</head>
+<body>
+
+
+<header>
+    <div >
+        <div >
+            <div>
+                <div class="page-heading">
+                    <h1>Edit Review / Rating</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content-->
+<main>
+    <div >
+        <div >
+            <div >
+                <div>
+                    <form id="contactForm" role="form" method="post" th:action="@{/reviews/{reviewId}/edit(reviewId=${review.reviewId})}" th:object="${review}">
+                        <input type="hidden" th:field="*{reviewId}">
+                        <div class="form-floating">
+                            <label for="reviewerId">Reviewer Id</label>
+                            <input class="form-control" id="reviewerId" type="text" name="reviewerId" placeholder="Enter your reviewerId..."  th:field="*{reviewerId}"/>
+                        </div>
+
+                        <div class="form-floating">
+                            <label for="vehicleBookingId">vehicleBookingId Id</label>
+                            <input class="form-control" id="vehicleBookingId" type="text" placeholder="Enter your reviewerId..."  th:field="*{vehicleBookingId}"/>
+                        </div>
+
+
+                        <div class="form-floating">
+                            <label for="review">Review</label>
+                            <input class="form-control" id="review" type="text" placeholder="Enter your review..."  th:field="*{rating}"/>
+                        </div>
+                        <br />
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>

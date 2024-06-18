@@ -31,6 +31,29 @@ public class ReviewServiceImpl implements ReviewService {
         return reviewRepository.save(review);
     }
 
+    @Override
+    public ReviewDto findReviewById(long reviewId) {
+        Review review = reviewRepository.findById(reviewId).get();
+        return mapToReviewDto(review);
+    }
+
+    @Override
+    public void updateReview(ReviewDto reviewDto) {
+        Review review = mapToReview(reviewDto);
+        reviewRepository.save(review);
+    }
+
+    private Review mapToReview(ReviewDto review) {
+        return Review.builder()
+                .reviewId(review.getReviewId())
+                .reviewerId(review.getReviewerId())
+                .rating(review.getRating())
+                .vehicleBookingId(review.getVehicleBookingId())
+                .createdOn(review.getCreatedOn())
+                .updatedOn(review.getUpdatedOn())
+                .build();
+    }
+
     private ReviewDto mapToReviewDto(Review review) {
         return ReviewDto.builder()
                 .reviewId(review.getReviewId())

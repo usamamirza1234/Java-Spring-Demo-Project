@@ -9,4 +9,9 @@ public interface ReviewService {
     List<ReviewDto> getAllReviews();
 
     Review saveReview(Review review);
+
+    ReviewDto findReviewById(long reviewId);
+
+    void updateReview(ReviewDto review);
+
 }

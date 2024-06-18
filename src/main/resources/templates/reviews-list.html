@@ -13,6 +13,7 @@
                 <div>
                     <h1>Reviews / Ratings</h1>
                     <a th:href="@{/reviews/new}" class="btn btn-primary">Create Review</a>
+
                 </div>
             </div>
         </div>
@@ -27,7 +28,8 @@
             <div th:each="review : ${reviews}" class="card mb-3">
                 <div class="card-body">
                     <h5 th:text="${review.reviewerId}" class="card-title"></h5>
-                    <!-- Add more fields as needed -->
+                    <h5 th:text="${review.rating}" class="card-title"></h5>
+                    <a th:href="@{/reviews/{reviewId}/edit(reviewId=${review.reviewId})}" class="btn btn-primary">Edit Review</a>
                 </div>
             </div>
         </div>
