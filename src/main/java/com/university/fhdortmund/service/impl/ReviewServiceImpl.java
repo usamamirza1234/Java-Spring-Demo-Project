@@ -26,6 +26,11 @@ public class ReviewServiceImpl implements ReviewService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public Review saveReview(Review review) {
+        return reviewRepository.save(review);
+    }
+
     private ReviewDto mapToReviewDto(Review review) {
         return ReviewDto.builder()
                 .reviewId(review.getReviewId())
