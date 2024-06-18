@@ -1,39 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thmyelead.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <title>All Reviews - FH Dortmund Project</title>
 </head>
 <body>
-<!-- Page Header-->
-<header class="masthead">
+
+<header>
     <div>
         <div>
             <div>
                 <div>
-                    <h1>Create Reviews</h1>
+                    <h1>Reviews / Ratings</h1>
+                    <a th:href="@{/reviews/new}" class="btn btn-primary">Create Review</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 <!-- Main Content-->
-<div >
-    <div >
-        <div>
-            <!-- Post preview-->
-            <div th:each="review : ${reviews}" class="post-preview">
-                <h2 th:text="${review.reviewerId}" class="post-title"></h2>
-                <!-- Divider-->
-                <hr class="my-4" />
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <!-- Post previews -->
+            <div th:each="review : ${reviews}" class="card mb-3">
+                <div class="card-body">
+                    <h5 th:text="${review.reviewerId}" class="card-title"></h5>
+                    <!-- Add more fields as needed -->
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
 <script src="js/scripts.js"></script>
 </body>
 </html>
