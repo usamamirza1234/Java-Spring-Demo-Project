@@ -43,6 +43,11 @@ public class ReviewServiceImpl implements ReviewService {
         reviewRepository.save(review);
     }
 
+    @Override
+    public void deleteReview(Long reviewId) {
+        reviewRepository.deleteById(reviewId);
+    }
+
     private Review mapToReview(ReviewDto review) {
         return Review.builder()
                 .reviewId(review.getReviewId())

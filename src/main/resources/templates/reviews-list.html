@@ -30,6 +30,7 @@
                     <h5 th:text="${review.reviewerId}" class="card-title"></h5>
                     <h5 th:text="${review.rating}" class="card-title"></h5>
                     <a th:href="@{/reviews/{reviewId}/edit(reviewId=${review.reviewId})}" class="btn btn-primary">Edit Review</a>
+                    <a th:href="@{/reviews/{reviewId}/delete(reviewId=${review.reviewId})}" class="btn btn-primary">Delete Review</a>
                 </div>
             </div>
         </div>
